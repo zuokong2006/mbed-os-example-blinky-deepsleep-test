@@ -1,25 +1,22 @@
 ![](./resources/official_armmbed_example_badge.png)
-# Blinky Mbed OS example
+# Deepsleep test based on Blinky Mbed OS example
 
-The example project is part of the [Arm Mbed OS Official Examples](https://os.mbed.com/code/) and is the [getting started example for Mbed OS](https://os.mbed.com/docs/mbed-os/v5.14/quick-start/index.html). It contains an application that repeatedly blinks an LED on supported [Mbed boards](https://os.mbed.com/platforms/).
+The Blinky Mbed OS example project is part of the [Arm Mbed OS Official Examples](https://os.mbed.com/code/) and is the [getting started example for Mbed OS](https://os.mbed.com/docs/mbed-os/v5.14/quick-start/index.html). It contains an application that repeatedly blinks an LED on supported [Mbed boards](https://os.mbed.com/platforms/).
 
 You can build the project with all supported [Mbed OS build tools](https://os.mbed.com/docs/mbed-os/latest/tools/index.html). However, this example project specifically refers to the command-line interface tool [Arm Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 (Note: To see a rendered example you can import into the Arm Online Compiler, please see our [import quick start](https://os.mbed.com/docs/mbed-os/latest/quick-start/online-with-the-online-compiler.html#importing-the-code).)
 
 1. [Install Mbed CLI](https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html).
 
-1. Clone this repository on your system, and change the current directory to where the project was cloned:
+2. You can download the example project with Arm Mbed CLI using the `import` subcommand:
 
     ```bash
-    $ git clone git@github.com:armmbed/mbed-os-example-blinky && cd mbed-os-example-blinky
+    $ mbed import https://github.com/zuokong2006/mbed-os-example-blinky-deepsleep-test
     ```
-
-    Alternatively, you can download the example project with Arm Mbed CLI using the `import` subcommand:
-
+    Change working directory to the code example folder.
     ```bash
-    $ mbed import mbed-os-example-blinky && cd mbed-os-example-blinky
+    $ cd mbed-os-example-blinky-deepsleep-test
     ```
-
 
 ## Application functionality
 
@@ -32,7 +29,11 @@ The `main()` function is the single thread in the application. It toggles the st
     ```bash
     $ mbed compile -m <TARGET> -t <TOOLCHAIN> --flash
     ```
-The binary is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-blinky.bin`.
+    For example, to build for the target CY8CPROTO_062_4343W with GCC_ARM toolchain, use the following command:
+    ```bash
+    $ mbed compile -m CY8CPROTO_062_4343W -t GCC_ARM --flash
+    ```
+The hex is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-blinky-deepsleep-test.hex`.
 
 Alternatively, you can manually copy the binary to the board, which you mount on the host computer over USB.
 
@@ -43,7 +44,7 @@ $ mbed compile -S
 ```
 
 ## Expected output
-The LED on your target turns on and off every 500 milliseconds.
+The LED on your target turns on and off every 5000 milliseconds.
 
 
 ## Troubleshooting
